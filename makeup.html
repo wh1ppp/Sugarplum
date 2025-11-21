@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Gothic&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUGARPLUM</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Garamond, serif;
+            overflow-x: hidden;
+        }
+
+        /* Section styling */
+        .section {
+            min-height: 100vh;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .section1 {    
+            background-image: url('mup.png');
+            justify-content: flex-start;
+            padding-top: 2rem;
+        }
+
+        .section2 {
+            background-image: url('2ndpage.png');
+            justify-content: flex-start;
+            padding-top: 2rem;
+        }
+
+        .section3 {
+            background-image: url('3rd.png');
+            justify-content: flex-start;
+            padding-top: 2rem;
+            position: relative;
+        }
+
+        .section4 {
+            background-image: url('last.png');
+            justify-content: center;
+            align-items: center;
+            padding-top: 2rem;
+            position: relative;
+        }
+
+        /* Navigation */
+        .nav-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Garamond;
+            font-weight: normal;
+            font-size: 15px;
+            border: 2px solid #000000;
+            border-radius: 50px / 25px;
+            background-color: #ef94ca;
+            height: 40px;
+            width: 140px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        /* Main title */
+        .main-title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "Times New Roman", serif;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            border: 2px solid #000000;
+            border-radius: 60px / 30px;
+            background-color: #ffffff;
+            height: 70px;
+            width: min(850px, 90%);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        /* Content container */
+        .content-container {
+            width: min(950px, 95%);
+            border: 2px solid #000000;
+            border-radius: 25px;
+            background-color: #ffffff;
+            padding: 2rem;
+            margin: 1rem auto;
+            position: relative;
+        }
+
+        /* Section headings */
+        .whoweare {
+            font-family: Garamond;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: bold;
+            text-align: left;
+            margin-bottom: 1rem;
+        }
+
+        /* Text content */
+        .wwatxt {
+            font-family: Helvetica, sans-serif;
+            font-size: clamp(0.9rem, 2vw, 1.2rem);
+            line-height: 1.5;
+            text-align: justify;
+        }
+
+        /* Horizontal line */
+        .divider {
+            border: none;
+            height: 1px;
+            background: black;
+            justify-content: left;
+            width: 80%;
+            margin: 1rem auto;
+        }
+
+        /* Two-column layout - ALWAYS side by side */
+        .two-column {
+            display: flex;
+            flex-wrap: nowrap; /* Prevent wrapping to new line */
+            justify-content: space-between;
+            gap: 1rem;
+            width: min(950px, 95%);
+            margin: 1rem auto;
+            overflow-x: auto; /* Allow horizontal scrolling if needed */
+        }
+
+        .column {
+            flex: 1;
+            min-width: 200px; /* Minimum width for each column */
+            border: 2px solid #000000;
+            border-radius: 25px;
+            background-color: #ffffff;
+            padding: 1.5rem;
+        }
+
+        .column-heading {
+            font-family: Garamond;
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            font-weight: normal;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .column-text {
+            font-family: Helvetica, sans-serif;
+            font-size: clamp(0.8rem, 1.8vw, 1rem);
+            line-height: 1.5;
+            text-align: justify;
+            word-wrap: break-word; /* Ensure text breaks properly */
+            overflow-wrap: break-word;
+        }
+
+        /* Text containers with fixed positioning */
+        .outline {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #00;
+            border-radius: 25px;
+            background-color: #00;
+            font-family: Garamond;
+            right: 52%;
+            bottom: 88%;
+            font-size: clamp(1.1rem, 1.7vw, 1.5rem);
+            color: #ffe3df;
+            width: 15%;
+            min-height: 5%;
+            text-shadow:
+                3px 3px 2px #000,
+                -1px 1px 2px #000,
+                -1px -1px 0 #000,
+                1px -1px 0 #000;
+            flex-direction: column;
+            padding: 10px;
+            z-index: 10;
+        }
+
+        .oltxt {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #00;
+            border-radius: 25px;
+            background-color: #ffffff;
+            font-family: Garamond;
+            right: 5%;
+            bottom: 70%;
+            font-size: clamp(0.7rem, 1.3vw, 1rem);
+            color: #000000;
+            width: 60%;
+            min-height: 20%;
+            flex-direction: column;
+            padding: 20px;
+            z-index: 10;
+        }
+
+        .oltxt2 {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #00;
+            border-radius: 25px;
+            background-color: #ffffff;
+            font-family: Garamond;
+            right: 5%;
+            bottom: 33.5%;
+            font-size: clamp(0.9rem, 1.3vw, 1.2rem);
+            color: #000000;
+            width: 60%;
+            min-height: 15%;
+            flex-direction: column;
+            padding: 20px;
+            z-index: 10;
+        }
+
+        /* Bottom two-column container for oltxt3 and oltxt4 - EASILY ADJUSTABLE */
+        .bottom-two-column {
+            position: absolute;
+            display: flex;
+            flex-wrap: nowrap; /* Prevent wrapping */
+            justify-content: space-between;
+            gap: 3rem;
+            
+            /* ADJUST THESE VALUES TO CHANGE POSITION */
+            right: 5%;   /* Distance from right edge */
+            bottom: 1%; /* Distance from bottom edge */
+            
+            /* ADJUST THESE VALUES TO CHANGE SIZE */
+            width: 60%;  /* Total width of both boxes */
+            height: 28%; /* Total height */
+            
+            z-index: 10;
+        }
+
+        .oltxt3 {
+            flex: 1;
+            min-width: 140px; /* Minimum width */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #00;
+            border-radius: 25px;
+            background-color: #ffffff;
+            font-family: Garamond;
+            font-size: clamp(0.9rem, 1.3vw, 1.3rem);
+            color: #000000;
+            flex-direction: column;
+            padding: 20px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            overflow: auto; /* Allow scrolling if content overflows */
+        }
+
+        .oltxt4 {
+            flex: 1;
+            min-width: 140px; /* Minimum width */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #00;
+            border-radius: 25px;
+            background-color: #ffffff;
+            font-family: Garamond;
+            font-size: clamp(0.9rem, 1.3vw, 1.3rem);
+            color: #000000;
+            flex-direction: column;
+            padding: 20px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            overflow: auto; /* Allow scrolling if content overflows */
+        }
+
+        /* Promotional Content Section - SMALLER SIZE */
+        .ppl {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #00;
+            border-radius: 25px;
+            font-family: League Gothic;
+            right: 50%;
+            bottom: 85%; /* Moved higher */
+            font-size: clamp(1.5rem, 2.2vw, 1.8rem); /* Smaller font */
+            color: #000000;
+            width: 50%; /* Smaller width */
+            min-height: 8%; /* Smaller height */
+            flex-direction: column;
+            padding: 15px; /* Smaller padding */
+            z-index: 10;
+        }
+
+        /* Promotional content containers - SMALLER AND POSITIONED HIGHER */
+        .promo-content-container {
+            position: absolute;
+            left: 5%; /* Position on left side */
+            width: 40%; /* Smaller width */
+            display: flex;
+            flex-direction: column;
+            gap: 1rem; /* Smaller gap */
+            top: 20%; /* Start higher */
+            bottom: 10%; /* Leave space at bottom */
+            z-index: 10;
+            max-height: 65%; /* Limit maximum height */
+            overflow-y: auto; /* Allow scrolling if content is too tall */
+        }
+
+        .promo-container {
+            border: 2px solid #000000;
+            border-radius: 25px;
+            background-color: #ffffff;
+            padding: 1.5rem; /* Smaller padding */
+            width: 100%;
+        }
+
+        .promo-title {
+            font-family: Garamond;
+            font-size: clamp(1.1rem, 2vw, 1.5rem); /* Smaller font */
+            font-weight: bold;
+            text-align: left;
+            margin-bottom: 0.8rem; /* Smaller margin */
+            color: #000000;
+        }
+
+        .promo-text {
+            font-family: Garamond;
+            font-size: clamp(0.8rem, 1.5vw, 1rem); /* Smaller font */
+            line-height: 1.5; /* Tighter line height */
+            text-align: justify;
+            color: #000000;
+        }
+
+        .promo-divider {
+            border: none;
+            height: 1px;
+            background: black;
+            width: 100%;
+            margin: 1rem 0; /* Smaller margin */
+        }
+
+        /* Media queries for mobile responsiveness */
+        @media (max-width: 768px) {
+            .section1 {
+                padding-top: 1rem;
+            }
+            
+            .main-title {
+                height: auto;
+                min-height: 70px;
+                padding: 0.5rem;
+            }
+            
+            .content-container, .column {
+                padding: 1rem;
+            }
+            
+            .text-content, .column-text {
+                text-align: left;
+            }
+
+            /* Stack text containers on mobile */
+            .outline, .oltxt, .oltxt2 {
+                position: relative !important;
+                right: auto !important;
+                bottom: auto !important;
+                width: 90% !important;
+                margin: 10px auto;
+                min-height: auto !important;
+            }
+
+            /* Adjust bottom two-column for mobile */
+            .bottom-two-column {
+                position: relative !important;
+                right: auto !important;
+                bottom: auto !important;
+                width: 95% !important;
+                height: auto !important;
+                margin: 10px auto;
+                flex-wrap: nowrap !important;
+                overflow-x: auto;
+            }
+
+            .section2 {
+                justify-content: flex-start;
+                padding-top: 1rem;
+            }
+
+            /* Adjust two-column for smaller screens */
+            .two-column {
+                gap: 0.5rem;
+            }
+            
+            .column {
+                min-width: 150px; /* Smaller minimum width for mobile */
+                padding: 1rem;
+            }
+            
+            .column-text {
+                font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+            }
+
+            .oltxt3, .oltxt4 {
+                min-width: 120px;
+                padding: 1rem;
+                font-size: clamp(0.6rem, 1.3vw, 0.8rem);
+            }
+
+            /* Promotional content adjustments for mobile */
+            .promo-content-container {
+                position: relative !important;
+                left: auto !important;
+                top: auto !important;
+                bottom: auto !important;
+                width: 95% !important;
+                max-height: none !important;
+                margin: 20px auto;
+                overflow-y: visible !important;
+            }
+
+            .promo-container {
+                padding: 1.2rem;
+            }
+
+            .promo-title {
+                font-size: clamp(1rem, 1.8vw, 1.3rem);
+            }
+
+            .promo-text {
+                font-size: clamp(0.7rem, 1.4vw, 0.9rem);
+                text-align: left;
+            }
+
+            .ppl {
+                position: relative !important;
+                right: auto !important;
+                bottom: auto !important;
+                width: 90% !important;
+                margin: 10px auto;
+                min-height: auto !important;
+                font-size: clamp(1.3rem, 2vw, 1.6rem) !important;
+            }
+
+            /* Section 4 mobile adjustments */
+            .section4 {
+                padding-top: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-button {
+                width: 120px;
+                height: 35px;
+                font-size: 14px;
+            }
+            
+            .main-title {
+                width: 95%;
+            }
+
+            /* Keep two columns even on very small screens */
+            .two-column {
+                gap: 0.5rem;
+                width: 98%; /* Use more width */
+            }
+            
+            .column {
+                min-width: 140px; /* Very small minimum width */
+                padding: 0.8rem;
+            }
+            
+            .column-heading {
+                font-size: clamp(1rem, 2vw, 1.2rem);
+            }
+            
+            .column-text {
+                font-size: clamp(0.6rem, 1.3vw, 0.8rem);
+                line-height: 1.4;
+            }
+
+            .outline, .oltxt, .oltxt2 {
+                padding: 15px !important;
+                font-size: clamp(0.8rem, 3vw, 1rem) !important;
+            }
+
+            /* Bottom columns on very small screens */
+            .bottom-two-column {
+                gap: 0.5rem;
+            }
+
+            .oltxt3, .oltxt4 {
+                min-width: 110px;
+                padding: 0.8rem;
+                font-size: clamp(0.5rem, 1.2vw, 0.7rem);
+            }
+
+            /* Promotional content for very small screens */
+            .promo-container {
+                padding: 1rem;
+            }
+
+            .promo-title {
+                font-size: clamp(0.9rem, 1.6vw, 1.1rem);
+            }
+
+            .promo-text {
+                font-size: clamp(0.65rem, 1.2vw, 0.8rem);
+            }
+        }
+
+        /* For extremely small screens (like mobile in landscape) */
+        @media (max-width: 360px) {
+            .two-column {
+                gap: 0.3rem;
+            }
+            
+            .column {
+                min-width: 130px;
+                padding: 0.6rem;
+            }
+            
+            .column-text {
+                font-size: 0.6rem;
+            }
+
+            .bottom-two-column {
+                gap: 0.3rem;
+            }
+
+            .oltxt3, .oltxt4 {
+                min-width: 100px;
+                padding: 0.6rem;
+                font-size: 0.5rem;
+            }
+
+            .promo-container {
+                padding: 0.8rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- First Section -->
+    <div class="section section1">
+        <div class="nav-button"><i>Home</i></div>
+        <h1 class="main-title"><b><i>Welcome to SUGARPLUM!</i></b></h1>
+        
+        <div class="content-container">
+            <h2 class="whoweare"><i>Who We Are</i></h2>
+            <hr class="divider">
+            <p class="wwatxt">
+                Welcome to Sugarplum, where we explore the how the simple act of make-up application boosts one's confidence and self-esteem, breaking the stereotypes along the way. Join us on our infotural live stream, as we talk about refining the beauty standards, stereotyping, the growing world of cosmetics for men. Let's discover how make-up becomes more than just pallettes and styles, but as a powerful tool for self-expression and artistry. 
+            </p>
+        </div>
+        
+        <div class="two-column">
+            <div class="column">
+                <h3 class="column-heading">Expression & Creativity</h3>
+                <p class="column-text">
+                    Today, Makeup serves as a form of expression and creativity across genders. With makeup tutorials, endless possibilities for new looks spreading rapidly via social media platforms around the world. This new narrative reflects a modern shift towards celebrating individuality and identity, seeing make-up as an every day experiment of sartorial self-expression that silently resists conventional beauty ideals.
+                </p>
+            </div>
+            
+            <div class="column">
+                <h3 class="column-heading">Tutorials & Reviews</h3>
+                <p class="column-text">
+                    Get ready for step-by-step tutorials, product reviews, and inspiring discussions on using cosmetics for confidence, self-expression, and pure joy. Let's all have fun in expressing ourselves through make up while also learning deeper and it.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Second Section -->
+    <div class="section section2">
+        <!-- Add your second section content here -->
+
+        <div class="outline"><h1><i>Outline</i></h1></div>
+        <div class="oltxt"><p>In today's growing society, makeup is used as a multi-purpose tool for self-expression, to boost confidence, and for social presentation, often viewed as a way to enhance beauty while also being a source of creativity and a tool for fitting into social expectations. However, it is also tied to societal pressure, over-consumerism, and potential negative effects on self-perception and the environment. For many people, make-up plays a role in show casing their creativity, self-care, and community building through trends and shared artistry.</p></div>
+        <div class="oltxt2"><p>Make-up also holds historical and cultural significance. Having been used for thousands of years, with evidence of its use dating back to the Ancient Egypts around 6,000 BCE, where it was used by both men and women for religious, protective, and cosmetic purposes. Makeup has held a diverse cultural significance throughout history, evolving from a tool for hygiene, religious rituals, and social status in the ancient world to a modern form of self-expression and individuality.</p></div>
+        
+        <!-- Bottom two-column container -->
+        <div class="bottom-two-column">
+            <div class="oltxt3"><p>Makeup can help a person feel more confident and happy with how they look. It also allows people to show their personality and style that makes them feel more comfortable and proud of how they present themselves. Many people use makeup as part of a daily routine that helps them feel prepared and gives them more confidence.</p></div>
+            <div class="oltxt4"><p>Makeup is a vital tool for personal expression and a significant boost to self-confidence, playing a key role in how individuals present themselves socially and professionally, functioning as a creative outlet and a moment of self-care, ultimately empowering people to feel polished, prepared, and fully engaged with the world.</p></div>
+        </div>
+    </div>
+    
+    <!-- Third Section -->
+    <div class="section section3">
+       <div class="ppl"><h1>PROMOTIONAL CONTENT</h1></div>
+       
+       <!-- Promotional content containers on the left -->
+       <div class="promo-content-container">
+           <div class="promo-container">
+               <h2 class="promo-title">Target Audience</h2>
+               <hr class="promo-divider">
+               <p class="promo-text">Our target audience includes students or people who value authenticity, social justice, and the idea of making beauty accessible to everyone above all else. They are people of different genders, ethnicities, and backgrounds who view makeup as a means of expressing their inner selves and a way to support positive change.</p>
+           </div>
+           
+           <div class="promo-container">
+               <h2 class="promo-title">Goals and Key Messages</h2>
+               <hr class="promo-divider">
+               <p class="promo-text">Our main goal is to inspire and empower our viewers by showing them that makeup is for all genders, skin tones, and identities. We wish for our audience to be able to identify with the content, be self-assured, and get the impetus to defy not only the standard but also the stereotyped framework of the beauty industry. The core of our communication is to advocate the different features of the human race and, at the same time, to remind people that beauty is a world without any borders or restrictions.</p>
+           </div>
+           
+           <div class="promo-container">
+               <h2 class="promo-title">Strategies, Content Marketing, and Social Media Campaigns</h2>
+               <hr class="promo-divider">
+               <p class="promo-text">We'll reach out and interview people with diverse backgrounds and genders then ask permission to share their stories, collaborate with influencers and activists who champion inclusion and equality, and create content that spreads the message of acceptance and confidence in makeup. We'll post and stream fun and eye-catching tutorials, real-life stories, and conversations on our website and social media platforms; this way, we can encourage our community to participate in the movement. Through some interesting challenges, gifts, and interactive content, we'll be able to create a lively, caring community that considers makeup as a means of self-love and social change instead of something to be ashamed of.</p>
+           </div>
+       </div>
+    </div>
+    
+    <!-- Fourth Section -->
+    <div class="section section4">
+        <!-- Fourth section with last.png background -->
+        <!-- You can add content here if needed -->
+    </div>
+</body>
+</html>
